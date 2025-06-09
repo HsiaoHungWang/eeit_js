@@ -83,16 +83,16 @@
             startY = event.clientY;
             divLeft = d1.offsetLeft;
             divTop = d1.offsetTop;
-
             // console.log(`divLeft:`, divLeft)
             // console.log(`divTop:`, divTop)
-
 
         })
 
         d1.addEventListener('mousemove', event => {
             if (flag) {
                 //divLeft(200) + (event.clientX - startX) 移動到新的位置
+                //(event.clientX - startX) 表示移動了多少 px，假設是100px
+                //divLeft(200) + 100px 就是讓div向右移動100px
                 d1.style.left = `${divLeft + (event.clientX - startX)}px`;
                 d1.style.top = `${divTop + (event.clientY - startY)}px`;
             }
