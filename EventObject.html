@@ -102,6 +102,31 @@
             flag = false;
         })
 
+        document.addEventListener('keydown', event => {
+            //判斷使用者是按下了上下左右的按鍵
+            // console.log(event.which);
+            // console.log(event.key);
+            //讓div的位置移動
+            //左右移動是改變 d1.offsetLeft
+            //上下移動是改變 d1.offsetTop
+
+            switch (event.which) {
+                case 38:  //up
+                    d1.style.top = `${d1.offsetTop - 10}px`;
+                    break;
+                case 40:  //down
+                    d1.style.top = `${d1.offsetTop + 10}px`;
+                    break;
+                case 37:  //left
+                    d1.style.left = `${d1.offsetLeft - 10}px`;
+                    break;
+                case 39: //right
+                    d1.style.left = `${d1.offsetLeft + 10}px`;
+                    break;
+            }
+
+        })
+
 
 
     </script>
