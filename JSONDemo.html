@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        //JSON => {} []
+        const emps = [{ "name": "Tom", "workYears": 3, "salary": 35000 },
+        { "name": "Jack", "workYears": 5, "salary": 40000 },
+        { "name": "Mary", "workYears": 7, "salary": 45000 }];
+
+        // //emps => [] => Array => 透過索引值讀取資料
+        // console.log(emps[1]); // { "name": "Jack", "workYears": 5, "salary": 40000 }
+        // //emps[1] => {} => Object => 透過  物件.屬性(key) {key:value}
+        // console.log(emps[1].name); //Jack
+        // console.log(emps[1].salary); //40000
+
+        //第一種
+        // for (let i = 0, max = emps.length; i < 3; i++) {
+        //     console.log(emps[i].name);
+        //     console.log(emps[i].workYears);
+        //     console.log(emps[i].salary);
+        // }
+        //第二種 for..of 讀取陣列、  //for...in 讀取物件 => key
+        // for (let emp of emps) {
+        //     console.log(emp.name);
+        //     console.log(emp.workYears);
+        //     console.log(emp.salary);
+        // }
+
+        // for (let i in emps) {
+        //     //emp 是索引值
+        //     console.log(emps[i]); //0 1 2
+        // }
+
+        //第三種 JSON 是陣列 [].forEach()
+        // emps.forEach((value, index, array) => {
+        //     //  console.log(value); //{},{},{}
+        //     //console.log(index); //0,1,2
+        //     // console.log(array); //[{}.{}.{}]
+        // });
+        emps.forEach(employee => {
+            //解構賦值
+            const { name, workYears, salary } = employee; //{ "name": "Jack", "workYears": 5, "salary": 40000 }
+            console.log(name);
+            console.log(workYears);
+            console.log(salary);
+        })
+
+
+
+
+
+    </script>
+</body>
+
+</html>
