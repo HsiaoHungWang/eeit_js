@@ -9,16 +9,33 @@
 
 <body>
     <a href="https://www.ispan.com.tw">iSpan</a>
+    <hr />
+    <form action="/do">
+        <input type="text" name="userName" />
+        <button type="submit">送出</button>
+    </form>
 
     <script>
         // const flag = window.confirm('真的要去嗎?');
         // console.log(flag);
         const theA = document.querySelector('a');
+        const regForm = document.querySelector('form');
+        const inpName = document.querySelector('input[name="userName"]');
+
         theA.addEventListener('click', event => {
             if (!window.confirm('真的要去嗎?')) {
-                event.preventDefault(); //停止預設行為
+                event.preventDefault(); //停止連結預設行為
             }
 
+        })
+
+        regForm.addEventListener('submit', event => {
+            event.preventDefault(); //停止submit行為
+
+            if (inpName.value.trim().length > 0) {
+                //送出
+                regForm.submit();
+            }
         })
     </script>
 </body>
