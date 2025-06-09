@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+        selectors{
+           css 樣式
+        }
+        
+        h1 {
+            color: green;
+        }
+
+        .s1 {
+            width: 50%;
+        }
+
+        #myH {
+            background-color: lightcyan;
+        }
+            */
+    </style>
+</head>
+
+<body>
+    <h1 id="myH" style="color:green;background-color: lightgreen;">First JavaScript Demo</h1>
+
+    <script>
+        //步驟一先找到要控制的標籤
+        //getElementById('myH')  根據id屬性找到要控制的對象 id="myH"
+        //var(不要用)、let、const
+        const theH = document.getElementById('myH');
+
+        //步驟二在什麼時候  滑鼠移到(mouseover)h1標籤上
+        //使用者行為>事件
+        theH.addEventListener('mouseover', function () {
+            //步驟三做甚麼事    標籤中文字的顏色變成紅色
+            //JavaScript 改變樣式
+            theH.style.color = 'red';
+            theH.style.backgroundColor = 'pink';
+
+        })
+        //匿名函式 => 箭頭函式
+        theH.addEventListener('mouseout', () => {
+            //步驟三做甚麼事    標籤中文字的顏色變成紅色
+            theH.style.color = 'orange';
+        })
+
+
+
+    </script>
+</body>
+
+</html>
