@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <a href="https://www.ispan.com.tw">iSpan</a>
+
+    <script>
+        // const flag = window.confirm('真的要去嗎?');
+        // console.log(flag);
+        const theA = document.querySelector('a');
+        theA.addEventListener('click', event => {
+            if (!window.confirm('真的要去嗎?')) {
+                event.preventDefault(); //停止預設行為
+            }
+
+        })
+    </script>
+</body>
+
+</html>
