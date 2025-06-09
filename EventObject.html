@@ -58,6 +58,12 @@
             //0 滑鼠左鍵
             //1 滑鼠滾輪
             //2 滑鼠右鍵
+            //事件對象的左上角為0,0
+            console.log(`offsetX:${event.offsetX}, offsetY:${event.offsetY}`);
+            //瀏覽器的左上角為0,0
+            console.log(`clientX:${event.clientX}, clientY:${event.clientY}`);
+            //螢幕的左上角為0,0
+            console.log(`screenX:${event.screenX}, screenY:${event.screenY}`);
         })
 
 
