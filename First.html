@@ -24,55 +24,61 @@
         }
             */
     </style>
+    <script>
+        //網頁載入完成會觸發load事件
+        window.addEventListener('load', () => {
+            //步驟一先找到要控制的標籤
+            //getElementById('myH')  根據id屬性找到要控制的對象 id="myH"
+            //var(不要用)、let、const
+            const theH = document.getElementById('myH');
+
+
+            //querySelector('selectors')  找到符合條件的第一筆資料
+            //querySelectorAll('selectors') 找到符合條件的所有資料
+            const myImg = document.querySelector('img');
+
+
+
+
+
+            //步驟二在什麼時候  滑鼠移到(mouseover)h1標籤上
+            //使用者行為>事件
+            theH.addEventListener('mouseover', function () {
+                //步驟三做甚麼事    標籤中文字的顏色變成紅色
+                //JavaScript 改變樣式
+                theH.style.color = 'red';
+                theH.style.backgroundColor = 'pink';
+
+            })
+            //匿名函式 => 箭頭函式
+            theH.addEventListener('mouseout', () => {
+                //步驟三做甚麼事    標籤中文字的顏色變成紅色
+                theH.style.color = 'orange';
+            })
+
+            myImg.addEventListener('mouseover', () => {
+                myImg.style.opacity = 1;
+            })
+
+            myImg.addEventListener('mouseout', () => {
+                myImg.style.opacity = 0.3;
+            })
+
+            myImg.addEventListener('click', () => {
+                myImg.src = 'images/cat1.webp';
+            })
+        })
+
+
+
+
+    </script>
 </head>
 
 <body>
     <h1 id="myH" style="color:green;background-color: lightgreen;">First JavaScript Demo</h1>
     <img src="images/cat.jpg" style="width: 25%;opacity:0.3" />
-    <script>
-        //步驟一先找到要控制的標籤
-        //getElementById('myH')  根據id屬性找到要控制的對象 id="myH"
-        //var(不要用)、let、const
-        const theH = document.getElementById('myH');
 
-        //querySelector('selectors')  找到符合條件的第一筆資料
-        //querySelectorAll('selectors') 找到符合條件的所有資料
-        const myImg = document.querySelector('img');
-
-
-
-
-
-        //步驟二在什麼時候  滑鼠移到(mouseover)h1標籤上
-        //使用者行為>事件
-        theH.addEventListener('mouseover', function () {
-            //步驟三做甚麼事    標籤中文字的顏色變成紅色
-            //JavaScript 改變樣式
-            theH.style.color = 'red';
-            theH.style.backgroundColor = 'pink';
-
-        })
-        //匿名函式 => 箭頭函式
-        theH.addEventListener('mouseout', () => {
-            //步驟三做甚麼事    標籤中文字的顏色變成紅色
-            theH.style.color = 'orange';
-        })
-
-        myImg.addEventListener('mouseover', () => {
-            myImg.style.opacity = 1;
-        })
-
-        myImg.addEventListener('mouseout', () => {
-            myImg.style.opacity = 0.3;
-        })
-
-        myImg.addEventListener('click', () => {
-            myImg.src = 'images/cat1.webp';
-        })
-
-
-
-    </script>
 </body>
 
 </html>
