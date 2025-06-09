@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #div1 {
+            width: 200px;
+            height: 200px;
+            background-color: silver;
+            position: absolute;
+            top: 200px;
+            left: 500px;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" id="input1" />
+    <div id="div1"></div>
+    <script>
+
+        const inp1 = document.querySelector('#input1');
+        const d1 = document.querySelector('#div1');
+
+        //事件發生會執行function，function的第一個參數就是事件物件
+        //事件物件封裝了很多事件發生的相關資訊
+        inp1.addEventListener('keypress', event => {
+            console.log(event);
+        })
+
+        d1.addEventListener('mousedown', event => {
+            console.log(event);
+        })
+
+
+    </script>
+</body>
+
+</html>
