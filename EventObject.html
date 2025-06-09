@@ -27,12 +27,37 @@
 
         //事件發生會執行function，function的第一個參數就是事件物件
         //事件物件封裝了很多事件發生的相關資訊
-        inp1.addEventListener('keypress', event => {
+        // inp1.addEventListener('keypress', event => {
+        //     console.log(event);
+        //     console.log('type：', event.type); //事件類型
+        //     console.log('target：', event.target); //事件對象
+        //     console.log(event.which);
+        //     //a-z > 97 - 122
+        //     //A-Z => 65 - 90
+        //     //0-9 => 49 - 57
+
+        // })
+        inp1.addEventListener('keydown', event => {
             console.log(event);
+            console.log(event.which);
+            //A-Z => 65 - 90 (不分大小寫)
+            //0-9 => 49 - 57
+            //Enter => 13
+            //Tab => 9
+            //Space => 32
+            // ==、===
+            if (event.which === 13) {
+                alert('enter');
+            }
+
         })
 
         d1.addEventListener('mousedown', event => {
             console.log(event);
+            console.log(event.button);
+            //0 滑鼠左鍵
+            //1 滑鼠滾輪
+            //2 滑鼠右鍵
         })
 
 
