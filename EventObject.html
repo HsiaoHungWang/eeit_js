@@ -12,7 +12,7 @@
             background-color: silver;
             position: absolute;
             top: 200px;
-            left: 500px;
+            left: 200px;
         }
     </style>
 </head>
@@ -52,19 +52,56 @@
 
         })
 
+        // document.addEventListener('mousedown', event => {
+        //     // console.log(event);
+        //     // console.log(event.button);
+        //     // //0 滑鼠左鍵
+        //     // //1 滑鼠滾輪
+        //     // //2 滑鼠右鍵
+        //     // //事件對象的左上角為0,0
+        //     // console.log(`offsetX:${event.offsetX}, offsetY:${event.offsetY}`);
+        //     // //瀏覽器的左上角為0,0
+        //     // console.log(`clientX:${event.clientX}, clientY:${event.clientY}`);
+        //     // //螢幕的左上角為0,0
+        //     // console.log(`screenX:${event.screenX}, screenY:${event.screenY}`);
+
+
+        //     d1.style.left = `${event.clientX}px`;
+        //     d1.style.top = `${event.clientY}px`;
+
+        // })
+
+        let flag; //決定滑鼠移動時div是否要跟著移動
+        let startX;
+        let startY;
+        let divLeft;
+        let divTop;
         d1.addEventListener('mousedown', event => {
-            console.log(event);
-            console.log(event.button);
-            //0 滑鼠左鍵
-            //1 滑鼠滾輪
-            //2 滑鼠右鍵
-            //事件對象的左上角為0,0
-            console.log(`offsetX:${event.offsetX}, offsetY:${event.offsetY}`);
-            //瀏覽器的左上角為0,0
-            console.log(`clientX:${event.clientX}, clientY:${event.clientY}`);
-            //螢幕的左上角為0,0
-            console.log(`screenX:${event.screenX}, screenY:${event.screenY}`);
+            flag = true;
+
+            startX = event.clientX;
+            startY = event.clientY;
+            divLeft = d1.offsetLeft;
+            divTop = d1.offsetTop;
+
+            // console.log(`divLeft:`, divLeft)
+            // console.log(`divTop:`, divTop)
+
+
         })
+
+        d1.addEventListener('mousemove', event => {
+            if (flag) {
+                //divLeft(200) + (event.clientX - startX) 移動到新的位置
+                d1.style.left = `${divLeft + (event.clientX - startX)}px`;
+                d1.style.top = `${divTop + (event.clientY - startY)}px`;
+            }
+        })
+
+        d1.addEventListener('mouseup', event => {
+            flag = false;
+        })
+
 
 
     </script>
