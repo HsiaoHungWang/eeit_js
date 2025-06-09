@@ -37,6 +37,9 @@
                 regForm.submit();
             }
         })
+
+        //滑鼠右鍵顯示功能選單會觸發 contextmenu 事件
+        document.addEventListener('contextmenu', event => event.preventDefault());
     </script>
 </body>
 
