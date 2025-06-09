@@ -35,6 +35,14 @@
         //var(不要用)、let、const
         const theH = document.getElementById('myH');
 
+        //querySelector('selectors')  找到符合條件的第一筆資料
+        //querySelectorAll('selectors') 找到符合條件的所有資料
+        const myImg = document.querySelector('img');
+
+
+
+
+
         //步驟二在什麼時候  滑鼠移到(mouseover)h1標籤上
         //使用者行為>事件
         theH.addEventListener('mouseover', function () {
@@ -48,6 +56,18 @@
         theH.addEventListener('mouseout', () => {
             //步驟三做甚麼事    標籤中文字的顏色變成紅色
             theH.style.color = 'orange';
+        })
+
+        myImg.addEventListener('mouseover', () => {
+            myImg.style.opacity = 1;
+        })
+
+        myImg.addEventListener('mouseout', () => {
+            myImg.style.opacity = 0.3;
+        })
+
+        myImg.addEventListener('click', () => {
+            myImg.src = 'images/cat1.webp';
         })
 
 
