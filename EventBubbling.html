@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #div1 {
+            width: 400px;
+            height: 300px;
+            background-color: silver;
+        }
+
+        #div2 {
+            width: 300px;
+            height: 150px;
+            background-color: green;
+        }
+
+        #p1 {
+            background-color: yellowgreen;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="div1">
+        div1
+        <div id="div2">
+            div2
+            <p id="p1">PPPPPPPPPPPPP</p>
+        </div>
+    </div>
+
+    <script>
+        //addEventListener 第三個參數，預設是false表示EventBubbling
+        //改成 true 表示是傳播行為變成 EventCapturing
+
+        document.querySelector('#div1').addEventListener('click', event => {
+            event.stopPropagation();//停止事件氣泡現象
+            console.log(`target:${event.target.id}`)
+            console.log(`currentTarget:${event.currentTarget.id}`)
+
+        }, false)
+        document.querySelector('#div2').addEventListener('click', event => {
+            event.stopPropagation();//停止事件氣泡現象
+            console.log(`target:${event.target.id}`)
+            console.log(`currentTarget:${event.currentTarget.id}`)
+
+        }, false)
+        document.querySelector('#p1').addEventListener('click', event => {
+            event.stopPropagation(); //停止事件氣泡現象
+            console.log(`target:${event.target.id}`)
+            console.log(`currentTarget:${event.currentTarget.id}`)
+        }, false)
+    </script>
+</body>
+
+</html>
