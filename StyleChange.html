@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .s1 {
+            color: blue;
+        }
+
+        .s2 {
+            text-decoration: underline;
+        }
+
+        .s3 {
+            background-color: cyan;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="s1 s3">樣式套用</h1>
+
+    <script>
+        const theH = document.querySelector('.s1');
+        theH.addEventListener('mouseover', event => {
+            theH.classList.add('s2');
+        })
+        theH.addEventListener('mouseout', event => {
+            theH.classList.remove('s2');
+        })
+        theH.addEventListener('click', event => {
+            theH.classList.toggle('s3');
+        })
+    </script>
+</body>
+
+</html>
