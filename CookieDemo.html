@@ -25,12 +25,38 @@
         btnRead.addEventListener('click', event => {
             console.log('cookie：', document.cookie); //username=Tom; theme=dark
             const cookie = document.cookie;
-            const datas = cookie.split('; '); //['username=Tom', 'theme=dark']
-            const datas1 = datas[0].split('='); //['username','Tom']
-            const datas2 = datas[1].split('='); //['theme','dark']
-            console.log(datas1[1]); //Tom
-            console.log(datas2[1]); //dark
+            // const datas = cookie.split('; '); //['username=Tom', 'theme=dark']
+            // const datas1 = datas[0].split('='); //['username','Tom']
+            // const datas2 = datas[1].split('='); //['theme','dark']
+            // console.log(datas1[1]); //Tom
+            // console.log(datas2[1]); //dark
+            const cookieObj = parseCookies(cookie);
+            console.log(cookieObj.username);
+            console.log(cookieObj.theme);
         })
+
+        const parseCookies = _cookie => {
+            //_cookie.split("; ") => ['username=Tom', 'theme=dark']
+            return _cookie.split("; ").reduce((acc, cookie) => {
+                const [key, value] = cookie.split("="); //['username','Tom']、['theme','dark']
+                acc[key] = decodeURIComponent(value);  //{'username':'tom', 'theme':'dark'}
+                return acc;
+            }, {});
+        }
+
+        // const obj = {};
+        // obj['name'] = 'Eric';
+        // obj.age = 30;
+        // console.log(obj);
+
+        // let balls = ["basketball", "valleyball", "baseball", "valleyball", "baseball", "baseball"];
+        // let ballCount = balls.reduce((accumulator, ball) => {
+        //     accumulator[ball] = (accumulator[ball] || 0) + 1;
+        //     return accumulator;
+        // }, {})
+
+        // console.log(ballCount);
+
     </script>
 </body>
 
