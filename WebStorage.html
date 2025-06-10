@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button type="button" id="buttonWrite1">localStorage</button>
+    <button type="button" id="buttonWrite2">sessionStorage</button>
+    <button type="button" id="buttonRemove">remove</button>
+    <button type="button" id="buttonRead">read</button>
+
+    <script>
+        const btnWrite1 = document.querySelector('#buttonWrite1');
+        const btnWrite2 = document.querySelector('#buttonWrite2');
+        const btnRemove = document.querySelector('#buttonRemove');
+        const btnRead = document.querySelector('#buttonRead');
+
+        const emps = [{ "name": "Tom", "workYears": 3, "salary": 35000 },
+        { "name": "Jack", "workYears": 5, "salary": 40000 },
+        { "name": "Mary", "workYears": 7, "salary": 45000 }];
+
+
+        btnWrite1.addEventListener('click', event => {
+            localStorage.setItem('name', 'Mary');
+            localStorage.setItem('emps', JSON.stringify(emps));
+        })
+        btnRemove.addEventListener('click', event => {
+            localStorage.removeItem('name'); //刪除 localStorage
+        })
+        btnRead.addEventListener('click', event => {
+            const name = localStorage.getItem('name'); //讀取 localStorage
+            const emps = localStorage.getItem('emps');
+            console.log(name);
+            console.log(emps);
+            console.log(JSON.parse(emps));
+        })
+
+
+        btnWrite2.addEventListener('click', event => {
+            sessionStorage.setItem('name', 'Tom');
+        })
+    </script>
+</body>
+
+</html>

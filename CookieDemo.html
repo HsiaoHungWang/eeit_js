@@ -17,8 +17,8 @@
 
         //將資料寫入Cookie key=value
         btnWrite.addEventListener('click', event => {
-            document.cookie = 'username=Tom; HttpOnly';
-            document.cookie = 'theme=dark; max-age=60';
+            document.cookie = 'username=Tom; HttpOnly'; //無法透過JavaScript讀取
+            document.cookie = 'theme=dark; max-age=60'; //保留一分鐘
         })
 
         //讀取Cookie資料
