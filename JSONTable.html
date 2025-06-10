@@ -13,7 +13,7 @@
     <div class="container">
         <div class="row">
             <div class="col-6 p-3">
-                <table class="table table-bordered">
+                <table id="table1" class="table table-bordered">
                     <thead>
                         <tr>
                             <th>姓名</th>
@@ -22,6 +22,7 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <!--資料由JSON來的
                         <tr>
                             <td>Tom</td>
                             <td>3</td>
@@ -36,7 +37,7 @@
                             <td>Mary</td>
                             <td>7</td>
                             <td>70000</td>
-                        </tr>
+                        </tr>-->
                     </tbody>
                     <tfoot></tfoot>
                 </table>
@@ -50,6 +51,33 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
         crossorigin="anonymous"></script>
+    <script>
+        const emps = [{ "name": "Tom", "workYears": 3, "salary": 35000 },
+        { "name": "Jack", "workYears": 5, "salary": 40000 },
+        { "name": "Mary", "workYears": 7, "salary": 45000 }];
+
+        const tb = document.querySelector('#table1 tbody');
+
+        const loadDatas = datas => {
+            //把傳入的JSON資料讀出
+            const trDatas = datas.map(employee => {
+                const { name, workYears, salary } = employee;
+                return (`
+                   <tr>
+                      <td>${name}</td>
+                      <td>${workYears}</td>
+                      <td>${salary}</td>
+                    </tr>                
+                `)
+            })
+            //console.log(trDatas.join(''));
+            //將資料顯示在Table中
+            tb.innerHTML = trDatas.join('');
+        }
+
+        loadDatas(emps);
+
+    </script>
 </body>
 
 </html>
