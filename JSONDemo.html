@@ -61,11 +61,11 @@
         //filter()可以篩選出符合條件的資料
         //年資超過5年
         const datas = emps.filter(employee => {
-            return employee.workYears > 5; //結果為 true，就會把 employee 寫進 datas
+            return employee.workYears > 5; //結果為 true，就會把 employee 回傳給 datas 這個新陣列中
         })
         console.log(datas);
 
-        //map() 
+        //map() 逐一讀出陣列中的資料，將資料加工處理後回傳給 lis 這個新陣列中
         const lis = emps.map(employee => {
             const { name } = employee;
             return (
