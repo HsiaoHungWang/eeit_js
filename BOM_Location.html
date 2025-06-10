@@ -119,6 +119,19 @@
             //location.href = sel.value; //轉到其它頁面
             location.replace(sel.value); //轉頁，但不會有歷史紀錄
         })
+
+
+        const params = new URLSearchParams(location.search);
+        console.log(params.get('name')); //key=value
+        console.log(params.get('age'));
+
+        const user = {
+            "name": "Steve",
+            "age": 30
+        }
+
+        const query = new URLSearchParams(user);
+        console.log(query.toString());  //name=Steve&age=30
     </script>
 </body>
 
