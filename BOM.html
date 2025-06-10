@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        //window 是瀏覽器的最上層物件，使用時可以省略
+        // window.alert('新增成功');
+        console.log(screen);
+        console.log(navigator);
+        if (navigator.language === 'zh-TW') {
+            console.log('您使用的是繁體中文的瀏覽器');
+        }
+        if (navigator.userAgent.indexOf('Mobile') !== -1) {
+            console.log('您使用的是行動裝置的瀏覽器');
+        } else {
+            console.log('您使用的是桌機或筆電的瀏覽器');
+        }
+
+        //getCurrentPosition() 用來取得位置
+        //成功
+        //失敗
+
+        const successCallback = position => {
+            // console.log(position);
+            const latitude = position.coords.latitude;
+            const longitude = position.coords.longitude;
+            console.log(`latitude：${latitude}, longitude:${longitude}`);
+        }
+        const errorCallback = error => {
+            console.log(`錯誤代號：${error.code}, 錯誤原因：${error.message}`)
+        }
+
+        navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+    </script>
+</body>
+
+</html>
