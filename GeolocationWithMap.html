@@ -27,10 +27,16 @@
             const latitude = position.coords.latitude;
             const longitude = position.coords.longitude;
             // console.log(`latitude：${latitude}, longitude:${longitude}`);
-            const map = L.map('map').setView([latitude, longitude], 13)
+
+            //setView() 根據傳入的經緯度以及縮放等級(0-20)設定地圖的中心點
+            const map = L.map('map').setView([latitude, longitude], 18)
+
+            //從openstreetmap取得地圖的樣式
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 attribution: '© OpenStreetMap contributors'
             }).addTo(map);
+
+
             //設定Marker
             L.marker([latitude, longitude], {
                 title: "現在位置",
