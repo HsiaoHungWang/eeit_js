@@ -121,7 +121,9 @@
         })
 
 
+        //使用方式一 傳入 ?name=Tom&age=24
         const params = new URLSearchParams(location.search);
+        //可以透過 get('key名稱') 得到 value
         console.log(params.get('name')); //key=value
         console.log(params.get('age'));
 
@@ -129,8 +131,9 @@
             "name": "Steve",
             "age": 30
         }
-
+        //使用方式二 傳入物件        
         const query = new URLSearchParams(user);
+        //透過 toString() 將物件轉成 key=value&key=value 的 search 字串
         console.log(query.toString());  //name=Steve&age=30
     </script>
 </body>
