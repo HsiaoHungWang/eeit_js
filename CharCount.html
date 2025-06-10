@@ -15,18 +15,32 @@
 
 <body>
     <label>請留言(最多100字)</label><br />
-    <textarea></textarea>
-    <div>3/100</div>
+    <textarea id="textMessage"></textarea>
+    <div id="div1">3/100</div>
 
     <script>
-        //找到要控制的對象，textarea、div
+        //step1 找到要控制的對象，textarea、div
+        const divInfo = document.querySelector('#div1');
+        const txtMessage = document.querySelector('#textMessage');
 
-        //在什麼時候 event => input
+        //step2 在什麼時候 event => input
+        txtMessage.addEventListener('input', event => {
+            // console.log(txtMessage.value);
+            // console.log(txtMessage.value.length);
+            //step3 做甚麼事
+            //1.字數統計  "abc".length
+            const c = txtMessage.value.length;
 
-        //做甚麼事
-        //1.字數統計  "abc".length
-        //2.顯示在div上  .textContent
-        //3.超過100個字就不讓使用者輸入  "aaax100".substring(0,100)
+            //3.超過100個字就不讓使用者輸入  "aaax100".substring(0,100)
+            if (c >= 100) {
+                txtMessage.value = txtMessage.value.substring(0, 100);
+            }
+            //2.顯示在div上  .textContent
+            divInfo.textContent = `${txtMessage.value.length}/100`;
+
+        })
+
+
 
     </script>
 </body>
