@@ -67,10 +67,12 @@
                 //console.log(inpSearch.value);
 
                 const results = emps.filter(employee => {
+                    //將員工姓名轉成小寫 toLowerCase()
+                    //判斷員工姓名有沒有包含搜尋的字元 includes('a')，有會得到true
                     return employee.name.toLowerCase().includes(inpSearch.value) //a
                 })
                 // console.log(results);
-                loadDatas(results);
+                loadDatas(results); //將搜尋完的結果傳給loadDatas()，重新繪製表格的內容
             }
         })
 
