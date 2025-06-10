@@ -8,7 +8,8 @@
 </head>
 
 <body>
-
+    <ul id="ul1">
+    </ul>
     <script>
         //JSON => {} []
         const emps = [{ "name": "Tom", "workYears": 3, "salary": 35000 },
@@ -48,12 +49,33 @@
         emps.forEach(employee => {
             //解構賦值
             const { name, workYears, salary } = employee; //{ "name": "Jack", "workYears": 5, "salary": 40000 }
+
+            // console.log(employee.name);
+            // console.log(employee.workYears);
+            // console.log(employee.salary);
             console.log(name);
             console.log(workYears);
             console.log(salary);
         })
 
+        //filter()可以篩選出符合條件的資料
+        //年資超過5年
+        const datas = emps.filter(employee => {
+            return employee.workYears > 5; //結果為 true，就會把 employee 寫進 datas
+        })
+        console.log(datas);
 
+        //map() 
+        const lis = emps.map(employee => {
+            const { name } = employee;
+            return (
+                `<li>${name}</li>`
+            )
+        })
+        console.log(lis);
+
+
+        document.querySelector('#ul1').innerHTML = lis.join('');
 
 
 
