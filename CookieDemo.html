@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button type="button" id="buttonWrite">寫入Cookie</button>
+    <button type="button" id="buttonRead">讀取Cookie</button>
+
+    <script>
+        const btnWrite = document.querySelector('#buttonWrite');
+        const btnRead = document.querySelector('#buttonRead');
+
+        //將資料寫入Cookie key=value
+        btnWrite.addEventListener('click', event => {
+            document.cookie = 'username=Tom';
+            document.cookie = 'theme=dark';
+        })
+
+        //讀取Cookie資料
+        btnRead.addEventListener('click', event => {
+            console.log('cookie：', document.cookie);
+        })
+    </script>
+</body>
+
+</html>
