@@ -11,8 +11,10 @@
 
 <body>
     <div class="container">
+
         <div class="row">
             <div class="col-6 p-3">
+                <input type="text" placeholder="搜尋姓名" id="InputSearch" />
                 <table id="table1" class="table table-bordered">
                     <thead>
                         <tr>
@@ -57,6 +59,21 @@
         { "name": "Mary", "workYears": 7, "salary": 45000 }];
 
         const tb = document.querySelector('#table1 tbody');
+        const inpSearch = document.querySelector('#InputSearch');
+
+        //透過filter方法搜尋JSON的姓名
+        inpSearch.addEventListener('keypress', event => {
+            if (event.which === 13) {
+                //console.log(inpSearch.value);
+
+                const results = emps.filter(employee => {
+                    return employee.name.toLowerCase().includes(inpSearch.value) //a
+                })
+                // console.log(results);
+                loadDatas(results);
+            }
+        })
+
 
         const loadDatas = datas => {
             //把傳入的JSON資料讀出
