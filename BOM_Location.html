@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="top"></p>
+    <a href="#bk1">段落一</a> |
+    <a href="#bk2">段落二</a> |
+    <a href="BOM_Location.html?name=Tom&age=30">Search</a>
+    <select id="select1">
+        <option value="BOM_Location.html">Location</option>
+        <option value="First.html">First</option>
+        <option value="CharCount.html">字元計算</option>
+        <option value="EventObject.html">事件物件</option>
+    </select>
+    <hr />
+    <p>ppppppppppp</p>
+    <p>ppppppppppp</p>
+    <p>ppppppppppp</p>
+    <p>ppppppppppp</p>
+    <p>ppppppppppp</p>
+    <p>ppppppppppp</p>
+    <p>ppppppppppp</p>
+    <p>ppppppppppp</p>
+    <p>ppppppppppp</p>
+    <p>ppppppppppp</p>
+    <p>ppppppppppp</p>
+    <p>ppppppppppp</p>
+    <p>ppppppppppp</p>
+    <p>ppppppppppp</p>
+    <p>ppppppppppp</p>
+    <p>ppppppppppp</p>
+    <p>ppppppppppp</p>
+    <p>ppppppppppp</p>
+    <p>ppppppppppp</p>
+    <p>ppppppppppp</p>
+    <p>ppppppppppp</p>
+    <p>ppppppppppp</p>
+    <p id="bk1">段落一 <a href="#top">Top</a></p>
+    <p>ppppppppppp</p>
+    <p>ppppppppppp</p>
+    <p>ppppppppppp</p>
+    <p>ppppppppppp</p>
+    <p>ppppppppppp</p>
+    <p>ppppppppppp</p>
+    <p>ppppppppppp</p>
+    <p>ppppppppppp</p>
+    <p>ppppppppppp</p>
+    <p>ppppppppppp</p>
+    <p>ppppppppppp</p>
+    <p>ppppppppppp</p>
+    <p>ppppppppppp</p>
+    <p>ppppppppppp</p>
+    <p>ppppppppppp</p>
+    <p>ppppppppppp</p>
+    <p>ppppppppppp</p>
+    <p>ppppppppppp</p>
+    <p>ppppppppppp</p>
+    <p>ppppppppppp</p>
+    <p>ppppppppppp</p>
+    <p id="bk2">段落二 <a href="#top">Top</a></p>
+
+    <p>ppppppppppp</p>
+    <p>ppppppppppp</p>
+    <p>ppppppppppp</p>
+    <p>ppppppppppp</p>
+    <p>ppppppppppp</p>
+    <p>ppppppppppp</p>
+    <p>ppppppppppp</p>
+    <p>ppppppppppp</p>
+    <p>ppppppppppp</p>
+    <p>ppppppppppp</p>
+    <p>ppppppppppp</p>
+    <p>ppppppppppp</p>
+    <p>ppppppppppp</p>
+    <p>ppppppppppp</p>
+    <p>ppppppppppp</p>
+    <p>ppppppppppp</p>
+    <p>ppppppppppp</p>
+    <p>ppppppppppp</p>
+    <p>ppppppppppp</p>
+    <p>ppppppppppp</p>
+    <p>ppppppppppp</p>
+    <p>ppppppppppp</p>
+    <p>ppppppppppp</p>
+    <p>ppppppppppp</p>
+    <p>ppppppppppp</p>
+    <p>ppppppppppp</p>
+    <p>ppppppppppp</p>
+    <p>ppppppppppp</p>
+    <p>ppppppppppp</p>
+    <p>ppppppppppp</p>
+    <p>ppppppppppp</p>
+    <p>ppppppppppp</p>
+    <p>ppppppppppp</p>
+    <p>ppppppppppp</p>
+    <p>ppppppppppp</p>
+    <p>ppppppppppp</p>
+    <p>ppppppppppp</p>
+    <p>ppppppppppp</p>
+    <p>ppppppppppp</p>
+    <p>ppppppppppp</p>
+    <p>ppppppppppp</p>
+    <p>ppppppppppp</p>
+    <p>ppppppppppp</p>
+    <script>
+        console.log(location);
+        console.log(`search：`, location.search); //?key=value
+        console.log('hash：', location.hash); //#bk1
+
+        const sel = document.querySelector('#select1');
+        sel.addEventListener('change', event => {
+            // console.log(sel.value);
+            //location.href = sel.value; //轉到其它頁面
+            location.replace(sel.value); //轉頁，但不會有歷史紀錄
+        })
+    </script>
+</body>
+
+</html>
