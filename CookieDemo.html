@@ -23,7 +23,13 @@
 
         //讀取Cookie資料
         btnRead.addEventListener('click', event => {
-            console.log('cookie：', document.cookie);
+            console.log('cookie：', document.cookie); //username=Tom; theme=dark
+            const cookie = document.cookie;
+            const datas = cookie.split('; '); //['username=Tom', 'theme=dark']
+            const datas1 = datas[0].split('='); //['username','Tom']
+            const datas2 = datas[1].split('='); //['theme','dark']
+            console.log(datas1[1]); //Tom
+            console.log(datas2[1]); //dark
         })
     </script>
 </body>
