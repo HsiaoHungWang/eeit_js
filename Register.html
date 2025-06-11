@@ -9,13 +9,17 @@
         div {
             margin: 5px;
         }
+
+        .error {
+            background-color: pink;
+        }
     </style>
 </head>
 
 <body>
     <form id="registerForm" action="/do" novalidate>
         <div><input type="text" placeholder="姓名" name="userName" required /></div>
-        <div> <input type="email" placeholder="電子郵件" name="userEmail" /></div>
+        <div><input type="email" placeholder="電子郵件" name="userEmail" /></div>
         <div> <button type="submit">submit</button>
             <button type="reset">reset</button>
             <button type="button">click</button>
@@ -33,10 +37,22 @@
         const inputMail = document.querySelector('input[name="userEmail"]');
         const ulErr = document.querySelector('#ulError');
 
+        // inputName.addEventListener('focus', event => {
+        //     inputName.classList.remove('error');
+        // })
+
+        document.querySelectorAll('input').forEach(inp => {
+            inp.addEventListener('focus', event => {
+                event.target.classList.remove('error');
+            })
+        })
+
         regForm.addEventListener('submit', event => {
             event.preventDefault();
 
             const errors = []; //儲存錯誤訊息
+            inputName.classList.remove('error');
+            inputMail.classList.remove('error');
 
             //在這裡進行表單驗證
             // if (inputName.value.trim() === "") {
@@ -45,12 +61,15 @@
 
             if (!checkEmpty(inputName.value)) {
                 errors.push('姓名一定要輸入');
+                inputName.classList.add('error');
             }
 
             if (!checkEmpty(inputMail.value)) {
                 errors.push('電子郵件一定要輸入');
+                inputMail.classList.add('error');
             } else if (!checkEmailFormat(inputMail.value)) {
                 errors.push('電子郵件格式不正確')
+                inputMail.classList.add('error');
             }
 
             if (errors.length === 0) {
