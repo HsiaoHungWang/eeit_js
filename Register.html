@@ -5,16 +5,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        div {
+            margin: 5px;
+        }
+    </style>
 </head>
 
 <body>
-    <form action="/do">
-        <input type="text" placeholder="姓名" name="userName" />
-        <input type="text" placeholder="電子郵件" name="userEmail" />
-        <button type="submit">submit</button>
-        <button type="reset">reset</button>
-        <button type="button">click</button>
+    <form id="registerForm" action="/do" novalidate>
+        <div><input type="text" placeholder="姓名" name="userName" required /></div>
+        <div> <input type="email" placeholder="電子郵件" name="userEmail" /></div>
+        <div> <button type="submit">submit</button>
+            <button type="reset">reset</button>
+            <button type="button">click</button>
+        </div>
     </form>
+
+    <script>
+        const regForm = document.querySelector('#registerForm');
+        const inputName = document.querySelector('input[name="userName"]');
+
+        //檢查是不是空字串
+        const checkEmpty = item => {
+            const data = item.trim();
+            let isValid = true;
+            if (data === '' || data.length === 0) {
+                isValid = false;
+            }
+            return isValid;
+        }
+
+        //檢查Email格式是否正確
+        const checkEmailFormat = email => {
+            const re = /^.+@.+\..{2,3}$/;
+            let isValid = true;
+            if (!re.test(email)) {
+                isValid = false;
+            }
+            return isValid;
+        }
+
+
+
+        regForm.addEventListener('submit', event => {
+            event.preventDefault();
+
+            //在這裡進行表單驗證
+            // if (inputName.value.trim() === "") {
+            //     alert('姓名一定要輸入');
+            // }
+
+        })
+    </script>
 </body>
 
 </html>
