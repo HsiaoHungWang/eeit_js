@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2 id="myH">Document Object Model</h2>
+    <ul>
+        <li>aaa</li>
+        <li>bbb</li>
+        <li id="myLi">ccc</li>
+        <li>ddd</li>
+        <li>eee</li>
+    </ul>
+
+    <script>
+        const theH = document.querySelector('#myH');
+        const theLi = document.querySelector('#myLi');
+
+        console.log(theLi.firstChild.nodeValue); //ccc
+        console.log(theLi.previousSibling.previousSibling.firstChild.nodeValue); //bbb
+        console.log(theLi.parentNode.nodeName); //UL
+        console.log(theLi.parentNode.childNodes[1].firstChild.nodeValue); //aaa
+
+
+
+        // console.log(document.nodeType); //9 文件節點
+
+        // //元素節點
+        // console.log(theH.nodeName); //H2 元素節點的名稱
+        // console.log(theH.nodeType); //1 元素節點
+        // console.log(theH.nodeValue); //null
+
+        // //文字節點
+        // console.log(theH.firstChild.nodeName);  //#text
+        // console.log(theH.firstChild.nodeType);  //3 文字節點
+        // console.log(theH.firstChild.nodeValue); //Document Object Model
+
+        // //讀出標籤的內容：innerText、textContent、firstChild.nodeValue
+        // console.log(theH.innerText);
+        // console.log(theH.textContent);
+    </script>
+</body>
+
+</html>
