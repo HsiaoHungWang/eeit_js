@@ -15,9 +15,11 @@
 <body>
     <button type="click" id="button1">Click</button>
     <div id="div1"></div>
+    <ul id="ul1"></ul>
     <script>
         const btn = document.querySelector('#button1');
         const theDiv = document.querySelector('#div1');
+        const theUl = document.querySelector('#ul1');
 
         btn.addEventListener('click', event => {
             //建立文字節點
@@ -37,6 +39,25 @@
             theDiv.appendChild(eleImg);
 
         })
+
+        const datas = ["aaa", "bbb", "cccc"];
+
+        // const docFrag = document.createDocumentFragment();
+
+        // datas.forEach(item => {
+        //     const txtLi = document.createTextNode(item);
+        //     const eleLi = document.createElement('li');
+        //     eleLi.appendChild(txtLi);   //<li>aaa</li>
+
+        //     docFrag.appendChild(eleLi);
+        // })
+        // theUl.appendChild(docFrag);
+
+
+        const lis = datas.map(item => `<li>${item}</li>`);
+        theUl.innerHTML = lis.join('');
+
+
     </script>
 </body>
 
