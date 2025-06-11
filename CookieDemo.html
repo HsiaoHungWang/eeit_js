@@ -11,6 +11,7 @@
     <button type="button" id="buttonWrite">寫入Cookie</button>
     <button type="button" id="buttonRead">讀取Cookie</button>
 
+    <script src="scripts/Utiltiy.js"></script>
     <script>
         const btnWrite = document.querySelector('#buttonWrite');
         const btnRead = document.querySelector('#buttonRead');
@@ -35,14 +36,14 @@
             console.log(cookieObj.theme);
         })
 
-        const parseCookies = _cookie => {
-            //_cookie.split("; ") => ['username=Tom', 'theme=dark']
-            return _cookie.split("; ").reduce((acc, cookie) => {
-                const [key, value] = cookie.split("="); //['username','Tom']、['theme','dark']
-                acc[key] = decodeURIComponent(value);  //{'username':'tom', 'theme':'dark'}
-                return acc;
-            }, {});
-        }
+        // const parseCookies = _cookie => {
+        //     //_cookie.split("; ") => ['username=Tom', 'theme=dark']
+        //     return _cookie.split("; ").reduce((acc, cookie) => {
+        //         const [key, value] = cookie.split("="); //['username','Tom']、['theme','dark']
+        //         acc[key] = decodeURIComponent(value);  //{'username':'tom', 'theme':'dark'}
+        //         return acc;
+        //     }, {});
+        // }
         //encodeURIComponent 用來將英文字母及數字以外的字元進行編碼避免亂碼的問題
         //decodeURIComponent 用來將encodeURIComponent編碼的字元進行解碼
 

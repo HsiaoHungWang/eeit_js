@@ -25,34 +25,13 @@
     <!--顯示錯誤訊息-->
     <ul id="ulError"></ul>
 
-    <script>
+    <!-- <script src="scripts/validate.js"></script> -->
+    <script type="module">
+        import { checkEmpty, checkEmailFormat } from './scripts/validate.js';
         const regForm = document.querySelector('#registerForm');
         const inputName = document.querySelector('input[name="userName"]');
         const inputMail = document.querySelector('input[name="userEmail"]');
         const ulErr = document.querySelector('#ulError');
-
-
-        //檢查是不是空字串
-        const checkEmpty = item => {
-            const data = item.trim();
-            let isValid = true;
-            if (data === '' || data.length === 0) {
-                isValid = false;
-            }
-            return isValid;
-        }
-
-        //檢查Email格式是否正確
-        const checkEmailFormat = email => {
-            const re = /^.+@.+\..{2,3}$/;
-            let isValid = true;
-            if (!re.test(email)) {
-                isValid = false;
-            }
-            return isValid;
-        }
-
-
 
         regForm.addEventListener('submit', event => {
             event.preventDefault();
@@ -82,11 +61,7 @@
                 // console.log(errors);
                 const lis = errors.map(err => `<li>${err}</li>`);
                 ulErr.innerHTML = lis.join('');
-
             }
-
-
-
         })
     </script>
 </body>
