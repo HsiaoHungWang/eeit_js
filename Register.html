@@ -29,6 +29,7 @@
         const regForm = document.querySelector('#registerForm');
         const inputName = document.querySelector('input[name="userName"]');
         const inputMail = document.querySelector('input[name="userEmail"]');
+        const ulErr = document.querySelector('#ulError');
 
 
         //檢查是不是空字串
@@ -69,6 +70,8 @@
 
             if (!checkEmpty(inputMail.value)) {
                 errors.push('電子郵件一定要輸入');
+            } else if (!checkEmailFormat(inputMail.value)) {
+                errors.push('電子郵件格式不正確')
             }
 
             if (errors.length === 0) {
@@ -76,7 +79,10 @@
                 regForm.submit();
             } else {
                 //顯示錯誤訊息
-                console.log(errors);
+                // console.log(errors);
+                const lis = errors.map(err => `<li>${err}</li>`);
+                ulErr.innerHTML = lis.join('');
+
             }
 
 
