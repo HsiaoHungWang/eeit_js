@@ -28,11 +28,17 @@
         // console.log(re.test('aav'));  //true
 
         //a123456789
-        const reId = /^[a-zA-Z]{1}[1-2]{1}\d{8}$/;
-        console.log(reId.test('a123456789')); //true
-        console.log(reId.test('1234567890')); //false
-        console.log(reId.test('a323456789')); //false
-        console.log(reId.test('a12345678a')); //false
+        // const reId = /^[a-zA-Z]{1}[1-2]{1}\d{8}$/;
+        // console.log(reId.test('a123456789')); //true
+        // console.log(reId.test('1234567890')); //false
+        // console.log(reId.test('a323456789')); //false
+        // console.log(reId.test('a12345678a')); //false
+
+        const reEmail = /^.+@.+\..{2,3}$/;
+        console.log(reEmail.test('aaa@company.com')); //true
+        console.log(reEmail.test('aaacompany.com')); //false
+        console.log(reEmail.test('aaa@company.comtw')); //false
+        console.log(reEmail.test('aaa@company.com.tw')); //true
 
 
 
