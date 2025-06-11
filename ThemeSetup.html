@@ -8,13 +8,50 @@
 </head>
 
 <body>
-    <input type="color" />
     <!--
-1. 根據使用者選擇顏色設定成網頁的背景色
-2. 只要設定過，以後再進來這個頁面，背景色就是之前設定過的背景色
--->
+     表單元素
+     提供使用者能夠輸入HTML標籤 value
+     -->
+    <input type="color" id="inputColor" />
+
+    <!--
+        1. 根據使用者選擇顏色設定成網頁的背景色
+        2. 只要設定過，以後再進來這個頁面，背景色就是之前設定過的背景色
+        資料儲存
+        a. cookie：expires、max-age
+        b. webstorage：localStorage、sessionStorage
+        c. IndexedDB
+    -->
     <script>
-        document.body.style.backgroundColor = 'silver';
+
+        //step1    querySelector('css selectors')
+        const inpColor = document.querySelector('#inputColor');
+
+        const bgColorSetup = color => {
+            document.body.style.backgroundColor = color;
+        }
+
+
+        //step2  click、input、change、select..    
+        inpColor.addEventListener('change', event => {
+            // console.log(inpColor.value);
+            // console.log(event.target.value);
+            //step3
+            //document.body.style.backgroundColor = inpColor.value;
+            bgColorSetup(inpColor.value);
+            //將選取的顏色存進localStorage中
+            localStorage.setItem('theme', inpColor.value);
+        })
+
+
+        //讀取 localStorage 中的資料
+        const theColor = localStorage.getItem('theme') || 'white';
+        bgColorSetup(theColor);
+        inpColor.value = theColor;
+
+
+
+
     </script>
 </body>
 
