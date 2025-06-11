@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // const re = new RegExp('pattern', 'flag');
+        //建立RegExp物件
+        // const re =  /pattern/flag;
+        //const re = /a+v/gi; //+ 表示一個以上  bbccdd、abb、aab、aaaab
+        // const re = /a*v/gi;   //* 表示0個以上  v、av、aaav
+        // const re = /a?v/gi;
+        // const re = /a+v/;
+        // //用法一 string.match(re)
+        // const str = "JavaScripvt JAAVAAAAAV";
+        // console.log(str.match(re));
+
+        // //用法二 re.test('string') => 比對這個字串有沒有符合pattern，有回傳true，沒有回傳false
+
+        // console.log(re.test('v'));  //false
+        // console.log(re.test('av'));  //true
+        // console.log(re.test('aav'));  //true
+
+        //a123456789
+        const reId = /^[a-zA-Z]{1}[1-2]{1}\d{8}$/;
+        console.log(reId.test('a123456789')); //true
+        console.log(reId.test('1234567890')); //false
+        console.log(reId.test('a323456789')); //false
+        console.log(reId.test('a12345678a')); //false
+
+
+
+    </script>
+</body>
+
+</html>
